@@ -1,4 +1,4 @@
-package br.univille.microkernel_kernel.service;
+package br.univille.microkernel_interface.service;
 
 import java.util.HashMap;
 

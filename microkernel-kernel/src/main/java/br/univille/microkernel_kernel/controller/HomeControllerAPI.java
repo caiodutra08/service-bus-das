@@ -8,8 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.univille.microkernel_kernel.service.DefaultService;
+import br.univille.microkernel_interface.service.DefaultService;
 
 @RestController
 @RequestMapping("/")
@@ -23,6 +22,10 @@ public class HomeControllerAPI {
     String serviceList = null;
     if (services != null) {
       serviceList = Arrays.toString(services.keySet().toArray());
+
+      for (var oneService : services.values()) {
+        oneService.doWork(null);
+      }
     }
 
     return new ResponseEntity<String>(serviceList, HttpStatus.OK);
